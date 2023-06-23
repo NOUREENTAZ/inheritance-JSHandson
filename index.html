@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h3> Q1.Create 2 objects - parent and child. Attach methods to parent and use those methods in child object using parents prototype </h3>
+    <pre>
+        const Parent = {
+            display: function() {
+                console.log(`${this.name} and age is ${this.age}`);
+            }
+        }
+        // const Child1 = Object.create(Parent);
+        // Child1.name = "EA23"
+        // Child1.age = 24
+        // Child1.display();
+    
+    const Child2 = Object.create(Parent);
+    Child2.name = "Noureentaz"
+    Child2.age = 25
+    Child2.display();
+        
+</pre>
+
+    <hr>
+    <h3> Q2.Write code to explain prototype chaining </h3>
+    <p>ex: Directly Grand parent property we can not inherit using parent property we can access to son property ans is shown in console window</p>
+    <pre>
+        const Par = {
+            display: function() {
+                console.log("Modinsaheb propery");
+            }
+        }
+        Par.display();
+        
+        const child1 = Object.create(Par)
+        child1.name = function() {
+            console.log("Nazeerahmed Property");
+        }
+        
+        child1.name();
+        child1.display();
+        
+        const child2 = Object.create(child1);
+        child2.name();
+        child2.display();    
+</pre>
+    <hr>
+    <h3>Q3.Add a method to calculate sum of all elements in Array in array's protype, use that method to calculate sum for multiple arrays</h3>
+    <pre>
+    Array.prototype.sum = function() {
+        let result = 0;
+        for (let i = 0; i &lt; this.length; i++) {
+          result += this[i];
+        }
+        return result;
+      };
+    
+    let N1 = [6, 8, 9];
+    let N2 = [7, 8, 6];
+    
+    
+    let addition = N1.sum() + N2.sum()
+    console.log(addition);
+</pre>
+
+    <hr>
+
+    <h3>Q4.Write a JavaScript function to retrieve all the names of object's own and inherited properties</h3>
+    <pre>
+    class student {
+        constructor(name, rollno, division){
+            this.name= name;
+            this.rollno= rollno;
+            this.division = division; 
+        }
+    
+        set setFriend(friend){
+            this.friend= friend
+        }
+    }
+    
+    let obj = new student("Noureentaz", "60","A")
+    obj.friend="Nagaveni"
+    console.log(obj)
+    
+    class senior extends student{
+         constructor(){
+            super("Sujeen", "49", "B")
+         }
+    }
+     let seniorobj = new senior();
+     console.log(seniorobj)
+</pre>
+
+    <hr>
+
+
+    <script src="./index.js"></script>
+
+</body>
+
+</html>
